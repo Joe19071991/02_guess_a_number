@@ -1,18 +1,28 @@
 function getNumber() {
-  let givenNumber = Number(prompt("saisir un nombre :"));
+  let givenNumber = prompt("Veuillez entrer un nombre");
+  givenNumber = parseFloat(givenNumber); //parseFloat = chiffre à virgule accepté, parseInt = chiffre rond
+  if (isNaN(givenNumber)) {
+    alert("Le nombre n'est pas valide");
+  } else {
+    alert("le nombre que vous avez entré est : " + givenNumber);
+  }
   return givenNumber;
 }
-let result = getNumber();
+getNumber();
 
 function didIWin(givenNumber) {
-  if (givenNumber < 22) {
-    alert("plus petit");
-  } else if (givenNumber > 22) {
+  const number = 22;
+
+  if (givenNumber < number) {
     alert("plus grand");
-  } else if (givenNumber === 22) {
-    alert("Bravo ! Vous avez deviné le nombre");
+  } else if (givenNumber > number) {
+    alert("plus petit");
+  } else if (givenNumber === number) {
+    alert("bravo ! Vous avez deviné le chiffre");
+  } else {
+    alert("entrée invalide");
   }
 }
-didIWin(result);
 
-function gamePlay() {}
+let chiffre = parseFloat(prompt("saisissez le chiffre à deviner : "));
+didIWin(chiffre);

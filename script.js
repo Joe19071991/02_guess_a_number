@@ -1,6 +1,7 @@
 function getNumber() {
   const givenNumber = parseFloat(prompt("Veuillez saisir un chiffre"));
   if (isNaN(givenNumber)) {
+    alert("Veuillez saisir un chiffre valide !");
     return null;
   }
   return givenNumber;
@@ -23,3 +24,15 @@ function didIWin(givenNumber) {
 //console.log("Est-ce le bon chiffre à deviner ? => " + didIWin(67));
 //console.log("Est-ce le bon chiffre à deviner ? => " + didIWin(8));
 //console.log("Est-ce le bon chiffre à deviner ? => " + didIWin(22));
+
+function gamePlay() {
+  const targetNumber = 22;
+  let goodNumberToGuess = false;
+  while (!goodNumberToGuess) {
+    const givenNumber = getNumber();
+    if (givenNumber != null) {
+      goodNumberToGuess = didIWin(givenNumber, targetNumber);
+    }
+  }
+}
+gamePlay();
